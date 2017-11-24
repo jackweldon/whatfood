@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12">
+      <form #f="ngForm" (ngSubmit)="search()" class="form-linline" novalidate>
+        <div class="input-group">
+          <input placeholder="Search..." id="querystring" type="text" class="form-control" [(ngModel)]="queryString" name="querystring"
+            required #querystring="ngModel">
+          <span class="input-group-btn">
+            <button class="btn btn-primary" [disabled]="!queryString" [ngClass]="{'disabled': !queryString}">Search!</button>
+          </span>
+        </div>
+        <div class="alert alert-danger" *ngIf="querystring.touched && !querystring.valid">Search needed</div>
+      </form>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="card-deck" *ngIf="recipes">
+      <recipe *ngFor="let item of recipes" [recipe]="item.recipe" >
+      </recipe>
+    </div>
+  </div>
+</div>

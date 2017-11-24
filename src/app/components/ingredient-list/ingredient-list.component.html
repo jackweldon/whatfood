@@ -1,0 +1,9 @@
+<h4>
+  Ingredients 
+</h4>
+{{item | json}}
+<ul class="list-unstyled">
+  <li *ngFor="let item of ingredients">
+    {{item.food}}  {{(item.quantity)}}
+  </li>
+</ul>
